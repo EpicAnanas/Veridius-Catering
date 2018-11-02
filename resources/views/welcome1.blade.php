@@ -48,50 +48,61 @@
                 font-size: 84px;
             }
 
+            .head {
+                margin-top: 10px;
+                padding-bottom: 30px;
+                border-bottom: black 3px solid;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            .loginlink {
+                font-size: 13px;
+            }
+
+            .headlink {
+                font-size: 20px;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+      <div class="head">
+          @if (Route::has('login'))
+              <div class="top-right loginlink links">
+                  @auth
+                      <a href="{{ url('/home') }}">Home</a>
+                  @else
+                      <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+                      @if (Route::has('register'))
+                          <a href="{{ route('register') }}">Register</a>
+                      @endif
+                  @endauth
+              </div>
+          @endif
 
+          <div class="title">
+              Logo
+          </div>
+
+          <div class="flex-center position-ref headlink">
+            <div class="links">
+                <a href="#">|Home|</a>
+                <a href="#">|Contact|</a>
+            </div>
+          </div>
+      </div>
+
+          <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                ConTent
             </div>
         </div>
     </body>
