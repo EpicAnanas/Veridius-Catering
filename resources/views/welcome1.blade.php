@@ -102,7 +102,13 @@
 
           <div class="flex-center position-ref full-height">
             <div class="content">
-                ConTent
+              @foreach ($breads as $bread)
+                <div class="panel panel-primary">
+                  <div class="panel-heading">{{$bread->name}}</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">{{$bread->description}}</div>
+                </div>
+              @endforeach
             </div>
         </div>
     </body>

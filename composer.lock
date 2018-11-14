@@ -1,11 +1,70 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "5069018191ffb1a4f85e859352007a71",
     "packages": [
+        {
+            "name": "anam/phpcart",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anam-hossain/phpcart.git",
+                "reference": "042f7c5c24eae6e7b929747d9ac8a7e500085c22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anam-hossain/phpcart/zipball/042f7c5c24eae6e7b929747d9ac8a7e500085c22",
+                "reference": "042f7c5c24eae6e7b929747d9ac8a7e500085c22",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~3.0|~4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anam\\Phpcart\\CartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Anam\\Phpcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anam\\Phpcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anam hossain",
+                    "email": "enam33@gmail.com"
+                }
+            ],
+            "description": "Simple framework agnostic shopping cart",
+            "homepage": "https://github.com/anam-hossain/phpcart",
+            "keywords": [
+                "Laravel cart",
+                "Laravel shopping cart",
+                "cart",
+                "php cart",
+                "shopping cart"
+            ],
+            "time": "2018-02-19T03:10:41+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

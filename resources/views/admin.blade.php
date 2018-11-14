@@ -24,6 +24,35 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+
+    .plop {
+      float: left;
+      width: 40%;
+      /* height: 300px; /* only for demonstration, should be removed */ */
+      background: #ccc;
+    }
+
+    article {
+        float: right;
+        padding: 20px;
+        width: 60%;
+        background-color: #f1f1f1;
+    }
+
+    /* Clear floats after the columns */
+    section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+            nav, article {
+            width: 100%;
+            height: auto;
+        }
+    }
   </style>
 </head>
 <body>
@@ -64,7 +93,7 @@
           <div style="display:none;" id="uitloggen">
             <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
-                <div style="color:white;">Youre page</div>
+                <div style="color:white;">Eerdere bestellingen bekijken</div>
                   <a href="/home">
                     <button class="btn btn-primary">
                       Click here
@@ -148,63 +177,85 @@
                 </form>
             </div>
           </div>
-        </li>
-        <li>
-          <a onclick="card()"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 
-          <div style="display:none;" id="card">
-            Card items
-          </div>
+          <script>
+            function inloggen() {
+                var x = document.getElementById("inloggen");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+
+            function uitloggen() {
+                var x = document.getElementById("uitloggen");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+          </script>
         </li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<script>
-  function inloggen() {
-      var x = document.getElementById("inloggen");
-      if (x.style.display === "none") {
-          x.style.display = "block";
-      } else {
-          x.style.display = "none";
-      }
-  }
-
-  function uitloggen() {
-      var x = document.getElementById("uitloggen");
-      if (x.style.display === "none") {
-          x.style.display = "block";
-      } else {
-          x.style.display = "none";
-      }
-  }
-
-  function card() {
-      var x = document.getElementById("card");
-      if (x.style.display === "none") {
-          x.style.display = "block";
-      } else {
-          x.style.display = "none";
-      }
-  }
-</script>
-
-<div class="container">
-  <div class="row">
-    @foreach ($breads as $bread)
-      <a href="{{route('bread.show', $bread->id)}}">
-        <div class="col-sm-4">
-          <div class="panel panel-primary">{{--success / dager--}}
-            <div class="panel-heading">{{$bread->name}}</div>
-            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            <div class="panel-footer">{{$bread->description}}</div>
-          </div>
-        </div>
-      </a>
-    @endforeach
+<h1>All Breads</h1>
+  <button>
+    <a href="bread/create">
+      Create Bread
+    </a>
+  </button>
+  <div class="card">
+    <table border="1px">
+      <tr>
+        <th>Name</th>
+        <th>Left</th>
+        <th>Edit</th>
+      </tr>
+        @foreach ($breads as $bread)
+          <tr>
+            <td> {{$bread->name}}     </td>
+            <td> {{$bread->amount}} </td>
+            <td>
+              <button>
+                <a href="bread/{{$bread->id}}/edit">
+                  Edit
+                </a>
+              </button>
+            </td>
+          </tr>
+        @endforeach
+    </table>
   </div>
-</div><br><br>
+
+<h1>All Users</h1>
+  <div class="card">
+    <table border="1px">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+      </tr>
+        @foreach ($users as $user)
+          <tr>
+            <td> {{$user->name}}     </td>
+            <td> {{$user->email}}    </td>
+            <td>
+              <button>
+                <a href="user/{{$user->id}}/edit">
+                  Edit
+                </a>
+              </button>
+            </td>
+          </tr>
+        @endforeach
+    </table>
+  </div>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>
