@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBreadsTable extends Migration
+class CreateBreadBestellingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateBreadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('breads', function (Blueprint $table) {
+        Schema::create('bread_bestelling', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->integer('in_opslag');
-            $table->timestamps();
+            $table->integer('bestelling_id')->unsigned();
+            $table->integer('bread_id')->unsigned();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateBreadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('breads');
+        Schema::dropIfExists('bread_bestelling');
     }
 }

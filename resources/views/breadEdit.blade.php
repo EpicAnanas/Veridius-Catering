@@ -204,29 +204,31 @@
   </div>
 </nav>
 
-<h1>Edit Bread</h1>
-<form action="{{route('bread.update', $bread)}}" method="POST">
-  {{ method_field('PATCH') }}
-  @csrf
-  Name:<br>
-  <input type="text" name="name" value="{{$bread->name}}"><br>
+<center>
+  <h1>Edit Bread</h1>
+  <form action="{{route('bread.update', $bread)}}" method="POST">
+    {{ method_field('PATCH') }}
+    @csrf
+    Name:<br>
+    <input type="text" name="name" value="{{$bread->name}}"><br>
 
-  Description:<br>
-  <input type="text" name="description" value="{{$bread->description}}"><br>
+    Description:<br>
+    <input type="text" name="description" value="{{$bread->description}}"><br>
 
-  Breads left:<br>
-  <input type="text" name="amount" value="{{$bread->amount}}"><br><br>
+    Breads left:<br>
+    <input type="text" name="in_opslag" value="{{$bread->in_opslag}}"><br><br>
 
-  <input type="reset" value="reset"><br><br>
-  <input type="submit" value="Save">
-</form>
+    <input type="reset" value="reset"><br><br>
+    <input type="submit" value="Save">
+  </form>
 
-<form action="{{route('user.destroy', $bread)}}" method="POST">
-  {{ method_field('DELETE') }}
-  @csrf
-  <input type="submit" value="DELETE">
-</form>
-<a href="{{ url('/home')}}"><button>Terug</button></a>
+  <form action="{{route('user.destroy', $bread)}}" method="POST">
+    {{ method_field('DELETE') }}
+    @csrf
+    <input type="submit" value="DELETE">
+  </form>
+  <a href="{{ url('/home')}}"><button>Terug</button></a>
+</center>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>

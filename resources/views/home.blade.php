@@ -153,7 +153,13 @@
           <a onclick="card()"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
 
           <div style="display:none;" id="card">
-            Card items
+            @foreach ($bestelling as $bestellingen)
+                <div class="col-sm-4">
+                  <div class="panel panel-primary">{{--success / dager--}}
+                    <div class="panel-heading">{{$bestellingen->hoeveelheid}}</div>
+                  </div>
+                </div>
+            @endforeach
           </div>
         </li>
       </ul>
@@ -193,15 +199,23 @@
 <div class="container">
   <div class="row">
     @foreach ($breads as $bread)
-      <a href="{{route('bread.show', $bread->id)}}">
+      {{-- <a href="{{route('bread.show', $bread->id)}}"> --}}
         <div class="col-sm-4">
           <div class="panel panel-primary">{{--success / dager--}}
             <div class="panel-heading">{{$bread->name}}</div>
             <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-            <div class="panel-footer">{{$bread->description}}</div>
+            <div class="panel-body">{{$bread->description}}</div>
+            <div class="panel-footer">
+              <form action="{{route('bestelling.store')}}" method="POST">
+                @csrf
+                Hoeveelheid:
+                <input type="text" name="Hoeveelheid" value="">
+                <input type="submit" value="Save">
+              </form>
+            </div>
           </div>
         </div>
-      </a>
+      {{-- </a> --}}
     @endforeach
   </div>
 </div><br><br>

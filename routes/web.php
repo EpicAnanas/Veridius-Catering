@@ -22,6 +22,10 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/', 'BreadController@index');
-Route::resource('/user', 'HomeController');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/bread', 'BreadController');
+
+Route::get('/', 'BestellingController@index');
+Route::resource('/bestelling', 'BestellingController');
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/user', 'HomeController');

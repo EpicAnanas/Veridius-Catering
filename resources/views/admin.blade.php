@@ -204,12 +204,15 @@
   </div>
 </nav>
 
-<h1>All Breads</h1>
+<center>
+<h1>All Breads</h1><br>
   <button>
     <a href="bread/create">
       Create Bread
     </a>
   </button>
+  <br><br>
+
   <div class="card">
     <table border="1px">
       <tr>
@@ -220,7 +223,7 @@
         @foreach ($breads as $bread)
           <tr>
             <td> {{$bread->name}}     </td>
-            <td> {{$bread->amount}} </td>
+            <td> {{$bread->in_opslag}} </td>
             <td>
               <button>
                 <a href="bread/{{$bread->id}}/edit">
@@ -255,7 +258,8 @@
           </tr>
         @endforeach
     </table>
-  </div>
+  </div><br>
+</center>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>

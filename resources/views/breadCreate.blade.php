@@ -204,22 +204,24 @@
   </div>
 </nav>
 
-<h1>Create Bread</h1>
-<form action="{{route('bread.store')}}" method="POST">
-  @csrf
-  Name:<br>
-  <input type="text" name="name" value=""><br>
+<center>
+  <h1>Create Bread</h1>
+  <form action="{{route('bread.store')}}" method="POST">
+    @csrf
+    Name:<br>
+    <input type="text" name="name" value=""><br>
 
-  Description:<br>
-  <input type="text" name="description" value=""><br>
+    Description:<br>
+    <input type="text" name="description" value=""><br>
 
-  Breads left:<br>
-  <input type="text" name="amount" value=""><br><br>
+    Breads left:<br>
+    <input type="text" name="in_opslag" value=""><br><br>
 
-  <input type="reset" value="reset"><br><br>
-  <input type="submit" value="Save">
-</form>
-<a href="{{ url('/home')}}"><button>Terug</button></a>
+    <input type="reset" value="reset"><br><br>
+    <input type="submit" value="Save">
+  </form>
+  <a href="{{ url('/home')}}"><button>Terug</button></a>
+</center>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>

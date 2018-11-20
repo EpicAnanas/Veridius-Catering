@@ -43,13 +43,13 @@ class BreadController extends Controller
       $validatedData = $request->validate([
         'name' => 'required|max:20',
         'description' => 'required|max:255',
-        'amount' => 'required'
+        'in_opslag' => 'required'
       ]);
 
       $bread = new  bread();
       $bread->name = $request['name'];
       $bread->description = $request['description'];
-      $bread->amount = $request['amount'];
+      $bread->in_opslag = $request['in_opslag'];
 
       $bread->save();
 
@@ -89,7 +89,7 @@ class BreadController extends Controller
     {
       $bread->name = $request['name'];
       $bread->description = $request['description'];
-      $bread->amount = $request['amount'];
+      $bread->in_opslag = $request['in_opslag'];
 
       $bread->save();
       return redirect('home');

@@ -94,11 +94,9 @@
             <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
                 <div style="color:white;">Eerdere bestellingen bekijken</div>
-                  <a href="/home">
-                    <button class="btn btn-primary">
-                      Click here
-                    </button>
-                  </a>
+                  <button class="btn btn-primary">
+                       Klik hier
+                  </button>
 
                 <div style="color:white;">of</div>
                   <button class="btn btn-primary" href="{{ route('logout') }}"
@@ -204,28 +202,37 @@
   </div>
 </nav>
 
-<center>
-  <h1>Edit User</h1>
-  <form action="{{route('user.update', $user)}}" method="POST">
-    {{ method_field('PATCH') }}
-    @csrf
-    Name:<br>
-    <input type="text" name="name" value="{{$user->name}}"><br>
+<section>
+  <div class="container plop">
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">{{--success / dager--}}
+            <div class="panel-heading">{{$bread->name}}</div>
+            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+            <div class="panel-footer">{{$bread->description}}</div>
+          </div>
+        </div>
+    </div>
+  </div><br><br>
 
-    Email:<br>
-    <input type="text" name="email" value="{{$user->email}}"><br><br>
+  <article>
+    <h1>{{$bread->name}}</h1>
+    <p>{{$bread->description}}</p>
+    {{-- <form action="{{route('bread.update', $bread)}}" method="POST">
+        @csrf
+        Amount:
+        <input type="text" name="amount" value="amount">
+        <input type="submit" value="Bestel">
+    </form> --}}
+    {{-- {{Form::open(['route' => 'user.store', 'files' => true])}}
 
-    <input type="reset" value="reset"><br><br>
-    <input type="submit" value="Save">
-  </form>
+    {{Form::label('user_photo', 'User Photo',['class' => 'control-label'])}}
+    {{Form::file('user_photo')}}
+    {{Form::submit('Save', ['class' => 'btn btn-success'])}}
 
-  <form action="{{route('user.destroy', $user)}}" method="POST">
-    {{ method_field('DELETE') }}
-    @csrf
-    <input type="submit" value="DELETE">
-  </form>
-  <a href="{{ url('/home')}}"><button>Terug</button></a>
-</center>
+    {{Form::close()}} --}}
+  </article>
+</section><br><br><br><br><br><br>
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>
