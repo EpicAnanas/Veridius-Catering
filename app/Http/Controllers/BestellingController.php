@@ -50,7 +50,7 @@ class BestellingController extends Controller
 
       $bestelling->save();
 
-      return redirect('home');
+      return redirect('/');
     }
 
     /**
