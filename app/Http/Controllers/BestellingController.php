@@ -47,7 +47,6 @@ class BestellingController extends Controller
 
       $bestelling = new  bestelling();
       $bestelling->hoeveelheid = $request['hoeveelheid'];
-      $bestelling->done = $request['done'];
 
       $bestelling->save();
 

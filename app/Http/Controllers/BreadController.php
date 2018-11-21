@@ -64,7 +64,7 @@ class BreadController extends Controller
      */
     public function show(Bread $bread)
     {
-      // return view('show', compact('bread'));
+      return view('breadShow', compact('bread'));
     }
 
     /**

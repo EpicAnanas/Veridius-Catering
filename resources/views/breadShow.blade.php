@@ -77,7 +77,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-        <li><a href="#">Deals</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -216,6 +215,16 @@
   </div><br><br>
 
   <article>
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+
     <h1>{{$bread->name}}</h1>
     <p>{{$bread->description}}</p>
     {{-- <form action="{{route('bread.update', $bread)}}" method="POST">
@@ -231,6 +240,12 @@
     {{Form::submit('Save', ['class' => 'btn btn-success'])}}
 
     {{Form::close()}} --}}
+    <form action="{{route('bestelling.store')}}" method="POST">
+      @csrf
+      Hoeveelheid:
+      <input type="text" name="hoeveelheid" value="" size="12">
+      <input type="submit" value="In winkelwagen">
+    </form>
   </article>
 </section><br><br><br><br><br><br>
 

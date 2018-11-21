@@ -48,7 +48,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-        <li><a href="#">Deals</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -209,8 +208,8 @@
               <form action="{{route('bestelling.store')}}" method="POST">
                 @csrf
                 Hoeveelheid:
-                <input type="text" name="Hoeveelheid" value="">
-                <input type="submit" value="Save">
+                <input type="text" name="hoeveelheid" value="" size="12">
+                <input type="submit" value="In winkelwagen">
               </form>
             </div>
           </div>

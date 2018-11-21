@@ -48,7 +48,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
-        <li><a href="#">Deals</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
