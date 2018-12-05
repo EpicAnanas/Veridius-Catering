@@ -21,6 +21,9 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
+Route::get('file', 'FileController@showUploadForm')->name('upload.file');
+Route::post('file', 'FileController@storeFile');
+
 Route::get('/', 'BreadController@index');
 Route::resource('/bread', 'BreadController');
 

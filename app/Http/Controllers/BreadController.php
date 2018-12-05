@@ -28,8 +28,9 @@ class BreadController extends Controller
     public function create()
     {
       $breads = bread::all();
+      $images = scandir('storage/upload');
 
-      return view('breadCreate', compact('breads'));
+      return view('breadCreate', compact('breads', 'images'));
     }
 
     /**
@@ -43,13 +44,15 @@ class BreadController extends Controller
       $validatedData = $request->validate([
         'name' => 'required|max:20',
         'description' => 'required|max:255',
-        'in_opslag' => 'required'
+        'in_opslag' => 'required',
+        'picName' => 'required'
       ]);
 
       $bread = new  bread();
       $bread->name = $request['name'];
       $bread->description = $request['description'];
       $bread->in_opslag = $request['in_opslag'];
+      $bread->picName = $request['picName'];
 
       $bread->save();
 
@@ -90,6 +93,7 @@ class BreadController extends Controller
       $bread->name = $request['name'];
       $bread->description = $request['description'];
       $bread->in_opslag = $request['in_opslag'];
+      $bread->picName = $request['picName'];
 
       $bread->save();
       return redirect('home');

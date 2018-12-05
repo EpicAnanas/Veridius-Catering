@@ -214,6 +214,14 @@
 @endif
 
 <center>
+  <h1>Create Bread Picture (500x200)</h1>
+  <form action="{{route('upload.file')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="file">
+    <input type="reset" value="reset">
+    <input type="submit" value="Save">
+  </form>
+
   <h1>Create Bread</h1>
   <form action="{{route('bread.store')}}" method="POST">
     @csrf
@@ -224,7 +232,16 @@
     <input type="text" name="description" value=""><br>
 
     Breads left:<br>
-    <input type="text" name="in_opslag" value=""><br><br>
+    <input type="text" name="in_opslag" value=""><br>
+
+    Bread Picture:<br>
+    <select name="picName">
+      @foreach ($images as $image)
+          <option value="{{$image}}"><img scr="storage/upload/{{$image}}"></option>
+          {{-- <img src="storage/upload/{{$image}}"> --}}
+      @endforeach
+    </select>
+    <br><br>
 
     <input type="reset" value="reset"><br><br>
     <input type="submit" value="Save">

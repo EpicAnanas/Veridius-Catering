@@ -202,7 +202,7 @@
         <div class="col-sm-4">
           <div class="panel panel-primary">{{--success / dager--}}
             <div class="panel-heading">{{$bread->name}}</div>
-            <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+            <div class="panel-body"><img src="storage/upload/{{$bread->picName}}" class="img-responsive" style="width:500px; height:200px" alt="Image"></div>
             <div class="panel-body">{{$bread->description}}</div>
             <div class="panel-footer">
               <form action="{{route('bestelling.store')}}" method="POST">
